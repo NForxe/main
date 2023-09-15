@@ -3,7 +3,7 @@ function pr1() {
       n = Number(document.forms["frm"].elements["n"].value), 
       sum = 0, sum1 = 1;
   for(var i = 1; i <= n; i++){
-    var res = (((-1) ** i) * (x ** (2 * i))) / (sum1 * i);
+    var res = (((-1) ** i) * (x ** i)) / (sum1 * i);
     sum = sum + res;
   }
   document.writeln(res);
