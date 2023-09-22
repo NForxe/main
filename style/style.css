@@ -1,0 +1,50 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.tbox {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.btn {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  background: #131313;
+  color: #fff;
+  transition: .5s;
+  border-radius: 20px;
+}
+
+.btn:hover {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  flex-direction: column;
+}
+
+body {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
