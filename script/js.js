@@ -21,12 +21,13 @@ function pr1() {
 // Дана последовательность целых чисел а1, а2, …, аn Выяснить какое число встречается раньше – положительное или отрицательное
 
 function pr2() {
-  var arr = [2, -5, 7, -3, 0, 9];
+  var n = document.forms["fermer"].elements["n"].value;
+  var arr = n.split(" ");
   for (var i = 0; i < arr.length; i++) {
     if (arr[i] > 0) {
-      document.writeln(`Первое число положительно ${arr[i]} <br>`);
+      document.writeln(`${i} число положительно ${arr[i]} <br>`);
     } else if (arr[i] < 0) {
-      document.writeln(`Первое число отрицательное ${arr[i]}<br>`);
+      document.writeln(`${i} число отрицательное ${arr[i]}<br>`);
     } else {
       document.writeln("Нет ни положительных, ни отрицательных чисел <br>");
     }
