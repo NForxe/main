@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <body>
-    <input type="text" name="" id="num" /><br />
-    <input type="button" value="Send" onclick="calc()" />
-    <p id="result"></p>
+</head>
+<body>
+    <input type="text" name="" id="num"><br>
+    <input type="button" value="Send" onclick="stat()"><br>
+    <p id="res"></p>
     <script>
-      function calc() {
-        var num = +document.getElementById("num").value;
-        var result = Math.pow(num, 1 / 2);
-        document.getElementById("result").innerText = result;
-      }
+        function stat() {
+            var num = +document.getElementById('num').value
+            var a = 0;
+
+            for (var i = 0; i < num; i++) {
+                var arr = [];
+                
+                for (var j = 1; j < num; j++) {
+                    var eve = Math.pow(i, j) % num;
+                    arr.push(eve)
+                }
+
+                if (arr.length === num - 1) {
+                    a = i;
+                }
+                document.getElementById('res').innerText = a;
+            }
+            console.log(eve);
+            console.log(arr);
+        }
     </script>
-  </body>
+</body>
 </html>
