@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <input type="text" name="" id="num"><br>
-    <input type="button" value="Send" onclick="stat()"><br>
-    <p id="res"></p>
+  </head>
+  <body>
+    <input type="text" name="" id="num" placeholder="Введите число" /><br />
+    <input type="button" value="Send" onclick="calc()" />
+    <p id="result"></p>
     <script>
-        function stat() {
-            var num = +document.getElementById('num').value
-            var a = 0;
-
-            for (var i = 0; i < num; i++) {
-                var arr = [];
-                
-                for (var j = 1; j < num; j++) {
-                    var eve = Math.pow(i, j) % num;
-                    arr.push(eve)
-                }
-
-                if (arr.length === num - 1) {
-                    a = i;
-                }
-                document.getElementById('res').innerText = a;
+      function calc() {
+        var num = +document.getElementById("num").value;
+        function powmod(a, b, p) {
+          var res = 1;
+          while (b) {
+            if (b & 1) {
+              res = (res * a) % p;
+              --b;
+            } else {
+              a = (a * a) % p;
+              b >>= 1;
             }
+          }
+          return res;
         }
+
+        function generator(p) {
+          var arr = [], phi = p - 1, n = phi;
+          for (var i = 2; i * i <= n; ++i) {
+            if (n % i === 0) {
+              arr.push(i);
+              while (n % i === 0) n /= i;
+            }
+          }
+
+          if (n > 1) arr.push(n);
+
+          for (var res = 2; res <= p; ++res) {
+            var ok = true;
+            for (var i = 0; i < arr.length && ok; ++i) ok &= powmod(res, phi / arr[i], p) !== 1;
+            if (ok) return res;
+            console.log(`${res} ^ ${phi / arr[i]} = ${n} (mod${p})`);
+          }
+          return -1;
+        }
+        document.getElementById("result").innerText = generator(num);
+      }
     </script>
-</body>
+  </body>
 </html>
